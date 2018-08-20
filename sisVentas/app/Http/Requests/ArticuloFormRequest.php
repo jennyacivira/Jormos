@@ -1,0 +1,39 @@
+<?php
+
+namespace sisVentas\Http\Requests;
+
+use sisVentas\Http\Requests\Request;
+
+class ArticuloFormRequest extends Request
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'idcategoria'=>'required',
+            'codigo'=>'required|max:50',
+            'nombre'=>'required|max:100',
+            'descripcion'=>'max:512',
+            // 'imagen'=>'mimes:jpeg,bmp,png',
+            'razon_social'=>'max:256',
+            'ruc'=>'max:256',
+            'direccion'=>'max:256',
+            'telefono'=>'max:15',
+            'email'=>'max:50',
+        ];
+    }
+}
