@@ -15,6 +15,9 @@
 					<th>Codigo</th>
 					<th>Nombre</th>
 					<th>Descripción</th>
+					<th>Direccion</th>
+					<th>Telefono</th>
+					<th>Email</th>
 					<th>Opciones</th>
 				</thead>
                @foreach ($categorias as $cat)
@@ -22,6 +25,9 @@
 					<td>{{ $cat->codigo}}</td>
 					<td>{{ $cat->nombre}}</td>
 					<td>{{ $cat->descripcion}}</td>
+					<td>{{ $cat->direccion}}</td>
+					<td>{{ $cat->telefono}}</td>
+					<td>{{ $cat->email}}</td>
 					<td>
 						<a href="{{URL::action('CategoriaController@edit',$cat->idcategoria)}}"><button class="btn btn-info">Editar</button></a>
                          <a href="" data-target="#modal-delete-{{$cat->idcategoria}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>

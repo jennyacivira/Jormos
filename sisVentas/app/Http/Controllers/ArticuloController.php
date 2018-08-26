@@ -43,6 +43,11 @@ class ArticuloController extends Controller
         $articulo->nombre=$request->get('nombre');
         $articulo->codigo=$request->get('codigo');
         $articulo->descripcion=$request->get('descripcion');
+        $articulo->direccion=$request->get('direccion');
+        $articulo->email=$request->get('email');
+        $articulo->telefono=$request->get('telefono');
+        $articulo->razon_social=$request->get('razon_social');
+        $articulo->ruc=$request->get('ruc');
         $articulo->estado='Activo';
 
         // if(Input::hasFile('imagen')){
@@ -72,7 +77,11 @@ class ArticuloController extends Controller
         $articulo->nombre=$request->get('nombre');
         $articulo->codigo=$request->get('codigo');
         $articulo->descripcion=$request->get('descripcion');
-
+        $articulo->direccion=$request->get('direccion');
+        $articulo->email=$request->get('email');
+        $articulo->telefono=$request->get('telefono');
+        $articulo->razon_social=$request->get('razon_social');
+        $articulo->ruc=$request->get('ruc');
         // if(Input::hasFile('imagen')){
         // 	$file=Input::file('imagen');
         // 	$file->move(public_path().'imagenes/articulos/',$file->getClientOriginalName());

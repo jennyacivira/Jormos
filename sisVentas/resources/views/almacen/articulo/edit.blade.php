@@ -47,9 +47,39 @@
             	<div class="col-lg-6 col col-md col-xs-12">
             		<div class="form-group">
                     	<label for="descripcion">Descripcion</label>
-                    	<input type="text" name="descripcion" requerid value="{{$articulo->descripcion}}"class="form-control" placeholder="Descripcion del articulo">
+                    	<input type="text" name="descripcion" requerid value="{{$articulo->descripcion}}"class="form-control" >
                     </div>
             	</div>	
+                <div class="col-lg-6 col col-md col-xs-12">
+                    <div class="form-group">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" name="direccion" requerid value="{{$articulo->direccion}}"class="form-control" >
+                    </div>
+                </div>  
+                <div class="col-lg-6 col col-md col-xs-12">
+                    <div class="form-group">
+                        <label for="razon_social">Razon Social</label>
+                        <input type="text" name="razon_social" requerid value="{{$articulo->razon_social}}"class="form-control" >
+                    </div>
+                </div>  
+                <div class="col-lg-6 col col-md col-xs-12">
+                    <div class="form-group">
+                        <label for="ruc">RUC</label>
+                        <input type="text" name="ruc" requerid value="{{$articulo->ruc}}"class="form-control" >
+                    </div>
+                </div>  
+                 <div class="col-lg-6 col col-md col-xs-12">
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="number" name="telefono" requerid value="{{$articulo->telefono}}"class="form-control">
+                    </div>
+                </div>  
+                 <div class="col-lg-6 col col-md col-xs-12">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" requerid value="{{$articulo->email}}"class="form-control">
+                    </div>
+                </div>  
             	<!-- <div class="col-lg-6 col col-md col-xs-12">
             		<div class="form-group">
             			<label for="imagen">Imagen</label>
@@ -59,7 +89,8 @@
                         @endif
             		</div>
             	</div>	
- -->
+ -->        </div> 
+            <div class="row">
                 <div class="col-lg-6 col col-md col-xs-12">
                     <div class="form-group"></div>
                     <button class="btn btn-primary" type="submit">Guardar</button>

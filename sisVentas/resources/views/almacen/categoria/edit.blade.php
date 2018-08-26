@@ -17,24 +17,42 @@
 			{!!Form::model($categoria,['method'=>'PATCH','route'=>['almacen.categoria.update',$categoria->idcategoria]])!!}
             {{Form::token()}}
             <div class="row">
-            <div class="col-lg-6 col col-md col-xs-12">
+	            <div class="col-lg-6 col col-md col-xs-12">
+		            <div class="form-group">
+		            	<label for="nombre">Nombre</label>
+		            	<input type="text" name="nombre" class="form-control" value="{{$categoria->nombre}}" placeholder="Nombre...">
+		            </div>
+	        	</div>
+	        	<div class="col-lg-6 col col-md col-xs-12">
+		            <div class="form-group">
+		            	<label for="codigo">Codigo</label>
+		            	<input type="text" name="codigo" class="form-control" value="{{$categoria->codigo}}" placeholder="Codigo...">
+		            </div>
+	        	</div>
+	            <div class="col-lg-6 col col-md col-xs-12">
+		            <div class="form-group">
+		            	<label for="descripcion">Descripción</label>
+		            	<input type="text" name="descripcion" class="form-control" value="{{$categoria->descripcion}}" placeholder="Descripción...">
+		            </div>
+	        	</div>
+	        	<div class="col-lg-6 col col-md col-xs-12">
+		            <div class="form-group">
+		            	<label for="direccion">Direccion</label>
+		            	<input type="text" name="direccion" class="form-control" value="{{$categoria->direccion}}" placeholder="Direccion...">
+		            </div>
+	        	</div>
+	        	<div class="col-lg-6 col col-md col-xs-12">
+		            <div class="form-group">
+		            	<label for="telefono">Telefono</label>
+		            	<input type="number" name="telefono" class="form-control" value="{{$categoria->telefono}}" placeholder="Telefono...">
+		            </div>
+	        	</div>
+	        	 <div class="col-lg-6 col col-md col-xs-12">
 	            <div class="form-group">
-	            	<label for="nombre">Nombre</label>
-	            	<input type="text" name="nombre" class="form-control" value="{{$categoria->nombre}}" placeholder="Nombre...">
+	                <label for="email">Email</label>
+	                <input type="email" name="email" requerid value="{{$categoria->email}}"class="form-control" placeholder="Email...">
 	            </div>
-        	</div>
-        	<div class="col-lg-6 col col-md col-xs-12">
-	            <div class="form-group">
-	            	<label for="codigo">Codigo</label>
-	            	<input type="text" name="codigo" class="form-control" value="{{$categoria->codigo}}" placeholder="Codigo...">
-	            </div>
-        	</div>
-            <div class="col-lg-6 col col-md col-xs-12">
-	            <div class="form-group">
-	            	<label for="descripcion">Descripción</label>
-	            	<input type="text" name="descripcion" class="form-control" value="{{$categoria->descripcion}}" placeholder="Descripción...">
-	            </div>
-        	</div>
+	        	</div>    
 
 			</div>
             <div class="form-group">
