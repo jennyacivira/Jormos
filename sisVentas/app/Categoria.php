@@ -15,12 +15,8 @@ class Categoria extends Model
 
     protected $fillable =[
     	'nombre',
-        'codigo',
     	'descripcion',
-    	'condicion',
-        'direccion',
-        'telefono',
-        'email'
+    	'condicion'
     ];
 
     protected $guarded =[

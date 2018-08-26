@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Editar Cliente: {{ $articulo->nombre}}</h3>
+			<h3>Editar Articulo: {{ $articulo->nombre}}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -43,14 +43,19 @@
                     	<input type="text" name="codigo" requerid value="{{$articulo->codigo}}"class="form-control">
                     </div>
             	</div>	
-
+            	<div class="col-lg-6 col col-md col-xs-12">
+            		<div class="form-group">
+                    	<label for="stock">Strock</label>
+                    	<input type="text" name="stock" requerid value="{{$articulo->stock}}"class="form-control" >
+                    </div>
+            	</div>
             	<div class="col-lg-6 col col-md col-xs-12">
             		<div class="form-group">
                     	<label for="descripcion">Descripcion</label>
                     	<input type="text" name="descripcion" requerid value="{{$articulo->descripcion}}"class="form-control" placeholder="Descripcion del articulo">
                     </div>
             	</div>	
-            	<!-- <div class="col-lg-6 col col-md col-xs-12">
+            	<div class="col-lg-6 col col-md col-xs-12">
             		<div class="form-group">
             			<label for="imagen">Imagen</label>
             			<input type="file" name="imagen" class="form-control">
@@ -59,7 +64,7 @@
                         @endif
             		</div>
             	</div>	
- -->
+
                 <div class="col-lg-6 col col-md col-xs-12">
                     <div class="form-group"></div>
                     <button class="btn btn-primary" type="submit">Guardar</button>

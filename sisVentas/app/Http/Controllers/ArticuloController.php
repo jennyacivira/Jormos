@@ -15,7 +15,7 @@ class ArticuloController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
     public function index(Request $request)
     {
@@ -24,9 +24,9 @@ class ArticuloController extends Controller
             $query=trim($request->get('searchText'));
             $articulos=DB::table('articulo as a')
             ->join('categoria as c','a.idcategoria','=','c.idcategoria')
-            ->select('a.idarticulo','a.nombre','a.codigo','c.nombre as categoria','a.descripcion','a.estado', 'a.razon_social','a.ruc','a.direccion','a.telefono','a.email')
+            ->select('a.idarticulo','a.nombre','a.codigo','a.stock','c.nombre as categoria','a.descripcion','a.imagen','a.estado')
             ->where('a.nombre','LIKE','%'.$query.'%')
-            ->orderBy('a.codigo','asc')
+            ->orderBy('a.idarticulo','desc')
             ->paginate(7);
             return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query]);
         }
@@ -42,14 +42,15 @@ class ArticuloController extends Controller
         $articulo->idcategoria=$request->get('idcategoria');
         $articulo->nombre=$request->get('nombre');
         $articulo->codigo=$request->get('codigo');
+        $articulo->stock=$request->get('stock');
         $articulo->descripcion=$request->get('descripcion');
         $articulo->estado='Activo';
 
-        // if(Input::hasFile('imagen')){
-        // 	$file=Input::file('imagen');
-        // 	$file->move(public_path().'imagenes/articulos/',$file->getClientOriginalName());
-        // 	$articulo->imagen=$file->getClientOriginalName();
-        // }
+        if(Input::hasFile('imagen')){
+        	$file=Input::file('imagen');
+        	$file->move(public_path().'imagenes/articulos/',$file->getClientOriginalName());
+        	$articulo->imagen=$file->getClientOriginalName();
+        }
 
         $articulo->save();
         return Redirect::to('almacen/articulo');
@@ -71,13 +72,14 @@ class ArticuloController extends Controller
         $articulo->idcategoria=$request->get('idcategoria');
         $articulo->nombre=$request->get('nombre');
         $articulo->codigo=$request->get('codigo');
+        $articulo->stock=$request->get('stock');
         $articulo->descripcion=$request->get('descripcion');
 
-        // if(Input::hasFile('imagen')){
-        // 	$file=Input::file('imagen');
-        // 	$file->move(public_path().'imagenes/articulos/',$file->getClientOriginalName());
-        // 	$articulo->imagen=$file->getClientOriginalName();
-        // }
+        if(Input::hasFile('imagen')){
+        	$file=Input::file('imagen');
+        	$file->move(public_path().'imagenes/articulos/',$file->getClientOriginalName());
+        	$articulo->imagen=$file->getClientOriginalName();
+        }
        
         $articulo->update();
         return Redirect::to('almacen/articulo');

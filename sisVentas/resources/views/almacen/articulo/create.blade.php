@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Cliente</h3>
+			<h3>Nuevo Articulo</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -18,23 +18,22 @@
 			{!!Form::open(array('url'=>'almacen/articulo','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
             {{Form::token()}}
     <div class="row">
-        <div class="col-lg-6 col col-md col-xs-12">
-            <div class="form-group">
-                <label>Fabricante</label>
-                <select name="idcategoria" class="form-control">
-                @foreach ($categorias as $cat)
-                <option value="{{$cat->idcategoria}}">{{$cat->nombre}}</option>
-                @endforeach 
-                </select>
-            </div>
-        </div>  
     	<div class="col-lg-6 col col-md col-xs-12">
     		<div class="form-group">
             	<label for="nombre">Nombre</label>
             	<input type="text" name="nombre" requerid values="{{old('nombre')}}"class="form-control" placeholder="Nombre...">
             </div>
     	</div>	
-    	
+    	<div class="col-lg-6 col col-md col-xs-12">
+    		<div class="form-group">
+    			<label>Categoria</label>
+    			<select name="idcategoria" class="form-control">
+    			@foreach ($categorias as $cat)
+    			<option value="{{$cat->idcategoria}}">{{$cat->nombre}}</option>
+    			@endforeach 
+    			</select>
+    		</div>
+    	</div>	
     	<div class="col-lg-6 col col-md col-xs-12">
     		<div class="form-group">
             	<label for="codigo">Codigo</label>
@@ -43,40 +42,22 @@
     	</div>	
     	<div class="col-lg-6 col col-md col-xs-12">
     		<div class="form-group">
+            	<label for="stock">Strock</label>
+            	<input type="text" name="stock" requerid values="{{old('stock')}}"class="form-control" placeholder="Stock...">
+            </div>
+    	</div>
+    	<div class="col-lg-6 col col-md col-xs-12">
+    		<div class="form-group">
             	<label for="descripcion">Descripcion</label>
             	<input type="text" name="descripcion" requerid values="{{old('descripcion')}}"class="form-control" placeholder="Descripcion del articulo">
             </div>
     	</div>	
-    	<!-- <div class="col-lg-6 col col-md col-xs-12">
+    	<div class="col-lg-6 col col-md col-xs-12">
     		<div class="form-group">
     			<label for="imagen">Imagen</label>
     			<input type="file" name="imagen" class="form-control">
     		</div>
-    	</div> -->
-        <div class="col-lg-6 col col-md col-xs-12">
-            <div class="form-group">
-                <label for="ruc">RUC</label>
-                <input type="text" name="ruc" requerid values="{{old('ruc')}}"class="form-control" placeholder="RUC">
-            </div>
-        </div>  
-        <div class="col-lg-6 col col-md col-xs-12">
-            <div class="form-group">
-                    <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" requerid values="{{old('direccion')}}"class="form-control" placeholder="Direccion...">
-            </div>  
-        </div>
-        <div class="col-lg-6 col col-md col-xs-12">
-            <div class="form-group">
-                <label for="telefono">Telefono</label>
-                <input type="text" name="telefono" requerid values="{{old('telefono')}}"class="form-control" placeholder="Telefono...">
-            </div>
-        </div>
-        <div class="col-lg-6 col col-md col-xs-12">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" requerid values="{{old('email')}}"class="form-control" placeholder="Email...">
-            </div>
-        </div>    		 	
+    	</div>		 	
     </div>        
             
             
