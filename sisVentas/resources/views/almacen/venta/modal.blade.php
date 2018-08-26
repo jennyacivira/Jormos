@@ -8,10 +8,10 @@ role="dialog" tabindex="-1" id="modal-delete-{{$ven->idventa}}">
 				aria-label="Close">
                      <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Cancelar Factura</h4>
+                <h4 class="modal-title">Cancelar el Acumulado</h4>
 			</div>
 			<div class="modal-body">
-				<p>Confirme si desea Cancelar la Factura</p>
+				<p>Confirme si desea Cancelar el Acumulado</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

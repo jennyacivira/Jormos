@@ -19,7 +19,7 @@ class IngresoController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
     public function index(Request $request)
     {
@@ -33,7 +33,7 @@ class IngresoController extends Controller
             ->where('i.num_comprobante','LIKE','%'.query.'%')
             ->orderBy('i.idingreso','desc')
             ->groupBy('i.ingreso','i.fecha_hora','p.nombre','i.tipo_comprobante','i.serie_comprobante','i.num_comprobante','i.impuesto','i.estado')	
-            ->paginate(7);
+            ->paginate(12);
             return view('compras.ingreso.index',["ingresos"=>$ingresos,"searchText"=>$query]);
         }
     }

@@ -5,6 +5,7 @@ namespace sisVentas\Http\Controllers;
 use Illuminate\Http\Request;
 use sisVentas\Http\Requests;
 use sisVentas\Categoria;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use sisVentas\Http\Requests\CategoriaFormRequest;
 use DB;
@@ -13,7 +14,7 @@ class CategoriaController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
     public function index(Request $request)
     {
@@ -23,7 +24,7 @@ class CategoriaController extends Controller
             $categorias=DB::table('categoria')->where('nombre','LIKE','%'.$query.'%')
             ->where ('condicion','=','1')
             ->orderBy('idcategoria','desc')
-            ->paginate(7);
+            ->paginate(12);
             return view('almacen.categoria.index',["categorias"=>$categorias,"searchText"=>$query]);
         }
     }
@@ -35,7 +36,11 @@ class CategoriaController extends Controller
     {
         $categoria=new Categoria;
         $categoria->nombre=$request->get('nombre');
+        $categoria->codigo=$request->get('codigo');
         $categoria->descripcion=$request->get('descripcion');
+        $categoria->direccion=$request->get('direccion');
+        $categoria->telefono=$request->get('telefono');
+        $categoria->email=$request->get('email');
         $categoria->condicion='1';
         $categoria->save();
         return Redirect::to('almacen/categoria');
@@ -53,7 +58,12 @@ class CategoriaController extends Controller
     {
         $categoria=Categoria::findOrFail($id);
         $categoria->nombre=$request->get('nombre');
+        $categoria->codigo=$request->get('codigo');
         $categoria->descripcion=$request->get('descripcion');
+        $categoria->direccion=$request->get('direccion');
+        $categoria->telefono=$request->get('telefono');
+        $categoria->email=$request->get('email');
+
         $categoria->update();
         return Redirect::to('almacen/categoria');
     }

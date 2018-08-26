@@ -14,7 +14,7 @@ class ClienteController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
     public function index(Request $request)
     {
@@ -27,7 +27,7 @@ class ClienteController extends Controller
             ->orwhere('num_documento','LIKE','%'.$query.'%')
             ->where ('tipo_persona','=','Cliente')
             ->orderBy('idpersona','desc')
-            ->paginate(7);
+            ->paginate(12);
             return view('ventas.cliente.index',["personas"=>$personas,"searchText"=>$query]);
         }
     }

@@ -17,10 +17,13 @@ class Articulo extends Model
     	'idcategoria',
     	'codigo',
     	'nombre',
-    	'stock',
     	'descripcion',
-    	'imagen',
-    	'estado'
+    	'estado',
+        'direccion',
+        'telefono',
+        'ruc',
+        'razon_social',
+        'email'
     ];
 
     protected $guarded =[

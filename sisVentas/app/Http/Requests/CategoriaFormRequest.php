@@ -26,6 +26,7 @@ class CategoriaFormRequest extends Request
         return [
             'nombre'=>'required|max:50',
             'descripcion'=>'max:256',
+            'codigo'=>'max:10'
         ];
     }
 }

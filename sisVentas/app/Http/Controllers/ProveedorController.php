@@ -15,7 +15,7 @@ class ProveedorController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
     public function index(Request $request)
     {
@@ -28,7 +28,7 @@ class ProveedorController extends Controller
             ->orwhere('num_documento','LIKE','%'.$query.'%')
             ->where ('tipo_persona','=','Proveedor')
             ->orderBy('idpersona','desc')
-            ->paginate(7);
+            ->paginate(12);
             return view('compras.proveedor.index',["personas"=>$personas,"searchText"=>$query]);
         }
     }

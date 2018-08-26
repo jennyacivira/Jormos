@@ -36,7 +36,7 @@ class VentaController extends Controller
             ->select('v.idventa','v.orden_jormos','v.fecha','f.idfactura','f.codigo as factura','f.fecha as fecha_factura','f.total as acumulado','a.nombre as cliente')
             ->where('v.orden_jormos','LIKE','%'.$query.'%')
             ->orderBy('v.idventa','desc')
-            ->paginate(7);
+            ->paginate(12);
             return view('almacen.venta.index',["ventas"=>$ventas,"searchText"=>$query]);
         }
     }

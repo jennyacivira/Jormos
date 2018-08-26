@@ -32,7 +32,7 @@ class FacturaController extends Controller
             ->select('f.idfactura','f.codigo as codigo_factura','f.fecha','a.nombre as cliente')
             ->where('f.codigo','LIKE','%'.$query.'%')
             ->orderBy('f.idfactura','desc') 
-            ->paginate(7);
+            ->paginate(12);
             return view('almacen.factura.index',["facturas"=>$facturas,"searchText"=>$query]);
         }
     }

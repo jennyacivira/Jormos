@@ -12,20 +12,16 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					
-					<th>Fecha</th>
 					<th>Codigo</th>
+					<th>Fecha</th>				
 					<th>Cliente</th>
-
 					<th>Opciones</th>
 				</thead>
                @foreach ($facturas as $fact)
 				<tr>
-					
-					<td>{{ $fact->fecha}}</td>
 					<td>{{ $fact->codigo_factura}}</td>
+					<td>{{ $fact->fecha}}</td>
 					<td>{{ $fact->cliente}}</td>
-
 					<td>
 						<a href="{{URL::action('FacturaController@show',$fact->idfactura)}}"><button class="btn btn-primary">Detalles</button></a>
                         <a href="" data-target="#modal-delete-{{$fact->idfactura}}" data-toggle="modal"><button class="btn btn-danger">Anular</button></a>

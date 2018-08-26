@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Categorías <a href="categoria/create"><button class="btn btn-success">Nuevo</button></a></h3>
+		<h3>Listado de Fabricantes <a href="categoria/create"><button class="btn btn-success">Nuevo</button></a></h3>
 		@include('almacen.categoria.search')
 	</div>
 </div>
@@ -12,14 +12,14 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					<th>Id</th>
+					<th>Codigo</th>
 					<th>Nombre</th>
 					<th>Descripción</th>
 					<th>Opciones</th>
 				</thead>
                @foreach ($categorias as $cat)
 				<tr>
-					<td>{{ $cat->idcategoria}}</td>
+					<td>{{ $cat->codigo}}</td>
 					<td>{{ $cat->nombre}}</td>
 					<td>{{ $cat->descripcion}}</td>
 					<td>

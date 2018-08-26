@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ADVentas | www.jennifer.com</title>
+    <title>Jormos | http://jormos.com/spa/servicio/cserv.html</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <!-- Theme style -->
@@ -17,19 +18,21 @@
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+   
+ 
 
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
-
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="#" class="logo">
+          <img src="\img\jormos.jpg" style="max-width:50%;width:auto;height:auto;">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>AD</b>V</span>
+          <span class="logo-mini"><b>Jormos</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>ADVentas</b></span>
+          <span class="logo-lg"><b>Jormos</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -47,15 +50,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <small class="bg-red">Online</small>
-                  <span class="hidden-xs">Jennifer Alvarez</span>
+                  <span class="hidden-xs">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     
                     <p>
-                      www.jennifer.com - Desarrollando Software
-                      <small>www.youtube.com/jennifer</small>
+                      Desarrollando Software
+                      <small>Jormos</small>
                     </p>
                   </li>
                   
@@ -63,7 +66,7 @@
                   <li class="user-footer">
                     
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
+                      <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Cerrar</a>
                     </div>
                   </li>
                 </ul>
@@ -87,16 +90,19 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Almacén</span>
+                <span>Menú</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="{{url('almacen/categoria')}}"><i class="fa fa-circle-o"></i> Fabricantes</a></li>
+                <li><a href="{{url('almacen/articulo')}}"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="{{url('almacen/producto')}}"><i class="fa fa-circle-o"></i> Productos</a></li>
+                <li><a href="{{url('almacen/factura')}}"><i class="fa fa-circle-o"></i> Factura Comercial</a></li>
+                <li><a href="{{url('almacen/venta')}}"><i class="fa fa-circle-o"></i> Acumulado de Ventas</a></li>
               </ul>
             </li>
             
-            <li class="treeview">
+           <!--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
                 <span>Compras</span>
@@ -106,8 +112,8 @@
                 <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
                 <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Proveedores</a></li>
               </ul>
-            </li>
-            <li class="treeview">
+            </li> -->
+           <!--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Ventas</span>
@@ -117,7 +123,7 @@
                 <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Ventas</a></li>
                 <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
               </ul>
-            </li>
+            </li> -->
                        
             <li class="treeview">
               <a href="#">
@@ -125,23 +131,23 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                <li><a href="{{url('seguridad/usuario')}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                 
               </ul>
             </li>
-             <li>
+             <!-- <li>
               <a href="#">
                 <i class="fa fa-plus-square"></i> <span>Ayuda</span>
                 <small class="label pull-right bg-red">PDF</small>
               </a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <a href="#">
                 <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
                 <small class="label pull-right bg-yellow">IT</small>
               </a>
             </li>
-                        
+                    -->     
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -191,16 +197,18 @@
       <!--Fin-Contenido-->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b>Version</b> 1.1.0
         </div>
-        <strong>Copyright &copy; 2018 <a href="www.jennifer.com">Jennifer</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href=#>Sistemas Informaticos</a>.</strong> All rights reserved.
       </footer>
 
       
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+    @stack('scripts')
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
     

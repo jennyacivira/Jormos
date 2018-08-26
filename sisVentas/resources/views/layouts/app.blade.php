@@ -40,7 +40,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="http://jormos.com/spa/servicio/cserv.html">
                     Jormos
                 </a>
             </div>

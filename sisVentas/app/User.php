@@ -5,7 +5,10 @@ namespace sisVentas;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
-{
+{   
+    protected $table='users';
+
+    protected $primaryKeys='id';
     /**
      * The attributes that are mass assignable.
      *

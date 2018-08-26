@@ -25,10 +25,10 @@ class ProductoController extends Controller
             $productos=DB::table('producto as p')
             ->join('categoria as c','p.idcategoria','=','c.idcategoria')
             ->select('p.idproducto','p.nombre','p.codigo','c.nombre as fabricante','p.estado','p.descripcion','p.partida_arancelaria')
-            ->where('p.nombre','LIKE','%'.$query.'%')
+            ->where('p.codigo','LIKE','%'.$query.'%')
             ->where ('p.estado','=','Activo')
             ->orderBy('p.idproducto','desc')
-            ->paginate(7);
+            ->paginate(12);
             return view('almacen.producto.index',["productos"=>$productos,"searchText"=>$query]);
         }
     }
