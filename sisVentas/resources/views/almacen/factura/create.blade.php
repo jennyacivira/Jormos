@@ -28,7 +28,7 @@
                 </select>
             </div>
     	</div>
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
             <div class="form-group">
                 <label for="fabricante">Cliente</label>
                 <select name="idarticulo" id="idarticulo" class="form-control selectpicker" data-live-search="true">
@@ -55,6 +55,12 @@
                                 </div>
                             </div>
 
+                </div>
+         </div>
+         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
+                <div class="form-group">
+                    <label for="descuento">Descuento</label>
+                    <input type="number" name="descuento"  class="form-control" step="0.01" min="0" placeholder="0.00">
                 </div>
          </div>
         </div>
@@ -166,7 +172,7 @@
             total=total+subtotal[cont];
            
 
-            var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button</td><td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" value="'+precio+'"></td><td><input type="text" name="unidad[]" value="'+unidad+'"></td><td>'+subtotal[cont]+'</td></tr>';    
+            var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button</td><td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td><td><input type="number" name="cantidad[]" step="0.01" min="0" placeholder="0.00" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" step="0.01" min="0" placeholder="0.00" value="'+precio+'"></td><td><input type="text" name="unidad[]" value="'+unidad+'"></td><td>'+subtotal[cont]+'</td></tr>';    
             cont++;
 
             limpiar();

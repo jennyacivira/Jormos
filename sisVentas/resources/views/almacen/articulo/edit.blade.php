@@ -25,7 +25,7 @@
     	       </div>	
             	<div class="col-lg-6 col col-md col-xs-12">
             		<div class="form-group">
-            			<label>Categoria</label>
+            			<label>Fabricante</label>
             			<select name="idcategoria" class="form-control">
             			@foreach ($categorias as $cat)
             				@if ($cat->idcategoria==$articulo->idcategoria)

@@ -40,19 +40,26 @@
             	<label for="codigo">Codigo</label>
             	<input type="text" name="codigo" requerid values="{{old('codigo')}}"class="form-control" placeholder="Codigo...">
             </div>
-    	</div>	
+    	</div>
+        <div class="col-lg-6 col col-md col-xs-12">
+            <div class="form-group">
+                <label for="sku">SKU</label>
+                <input type="text" name="sku" requerid values="{{old('sku')}}"class="form-control" placeholder="SKU...">
+            </div>
+        </div> 	
         <div class="col-lg-6 col col-md col-xs-12">
             <div class="form-group">
                 <label for="descripcion">Descripcion</label>
                 <input type="text" name="descripcion" requerid values="{{old('descripcion')}}"class="form-control" placeholder="Descripcion...">
             </div>
         </div>  
-         <div class="col-lg-6 col col-md col-xs-12">
+        <div class="col-lg-6 col col-md col-xs-12">
             <div class="form-group">
                 <label for="partida_arancelaria">Partida Arancelaria</label>
                 <input type="text" name="partida_arancelaria" requerid values="{{old('partida_arancelaria')}}"class="form-control" placeholder="Partida Arancelaria...">
             </div>
         </div>  
+        
     		
     	 	
     </div>        

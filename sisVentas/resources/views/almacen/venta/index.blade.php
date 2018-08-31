@@ -27,7 +27,7 @@
 					<td>{{ $ven->fecha}}</td>
 					<td>{{ $ven->factura}}</td>
 				    <td>{{ $ven->cliente}}</td>
-				    <td>{{ $ven->acumulado}}</td>
+				    <td>{{ $ven->acumulado - $ven->descuento}}</td>
 
 					<td>
 						<a href="{{URL::action('VentaController@show',$ven->idventa)}}"><button class="btn btn-primary">Detalles</button></a>

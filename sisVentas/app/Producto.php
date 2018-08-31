@@ -19,7 +19,8 @@ class Producto extends Model
     	'codigo',
     	'nombre',
     	'descripcion',
-    	'partida_arancelaria'
+    	'partida_arancelaria',
+        'sku'
     ];
 
     protected $guarded =[

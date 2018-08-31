@@ -33,8 +33,9 @@ class VentaController extends Controller
             $ventas=DB::table('venta as v')
             ->join('articulo as a','v.idarticulo','=','a.idarticulo')
             ->join('factura_comercial as f','f.idfactura','=','v.idfactura')
-            ->select('v.idventa','v.orden_jormos','v.fecha','f.idfactura','f.codigo as factura','f.fecha as fecha_factura','f.total as acumulado','a.nombre as cliente')
+            ->select('v.idventa','v.orden_jormos','v.fecha','f.idfactura','f.codigo as factura','f.fecha as fecha_factura','f.total as acumulado','a.nombre as cliente','f.descuento')
             ->where('v.orden_jormos','LIKE','%'.$query.'%')
+            ->where('v.estado','=','Activa')
             ->orderBy('v.idventa','desc')
             ->paginate(12);
             return view('almacen.venta.index',["ventas"=>$ventas,"searchText"=>$query]);
@@ -80,7 +81,7 @@ class VentaController extends Controller
             ->join('articulo as a','v.idarticulo','=','a.idarticulo')
             ->join('factura_comercial as f','f.idfactura','=','v.idfactura')
             ->join('detalle_factura as d','d.idfactura','=','f.idfactura')
-            ->select('v.idventa','a.nombre as cliente','v.orden_jormos','f.idfactura','f.codigo','f.fecha','d.unidad','d.cantidad','d.precio_unitario',DB::raw('sum(d.cantidad*d.precio_unitario) as total'))
+            ->select('v.idventa','a.nombre as cliente','v.orden_jormos','f.idfactura','f.codigo','f.fecha','f.descuento','d.unidad','d.cantidad','d.precio_unitario',DB::raw('sum(d.cantidad*d.precio_unitario) as total'))
             ->where('v.idventa','=',$id)
             ->first();
         $detalles=DB::table('detalle_factura as d')

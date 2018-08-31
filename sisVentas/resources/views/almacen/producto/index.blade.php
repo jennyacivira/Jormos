@@ -14,6 +14,7 @@
 				<thead>
 					
 					<th>Codigo</th>
+					<th>SKU</th>
 					<th>Nombre</th>
 					<th>Fabricante</th>
 					<th>Descripcion</th>
@@ -26,6 +27,7 @@
 				<tr>
 					
 					<td>{{ $art->codigo}}</td>
+					<td>{{ $art->sku}}</td>
 					<td>{{ $art->nombre}}</td>
 					<td>{{ $art->fabricante}}</td>
 					<td>{{ $art->descripcion}}</td>

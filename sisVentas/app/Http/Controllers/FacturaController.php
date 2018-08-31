@@ -29,8 +29,9 @@ class FacturaController extends Controller
             $query=trim($request->get('searchText'));
             $facturas=DB::table('factura_comercial as f')
             ->join('articulo as a','f.idarticulo','=','a.idarticulo')
-            ->select('f.idfactura','f.codigo as codigo_factura','f.fecha','a.nombre as cliente')
+            ->select('f.idfactura','f.codigo as codigo_factura','f.fecha','a.nombre as cliente','f.descuento')
             ->where('f.codigo','LIKE','%'.$query.'%')
+            ->where('f.estado','=','Activa')
             ->orderBy('f.idfactura','desc') 
             ->paginate(12);
             return view('almacen.factura.index',["facturas"=>$facturas,"searchText"=>$query]);
@@ -53,10 +54,7 @@ class FacturaController extends Controller
 	        $factura=new Factura;
 	        $factura->codigo=$request->get('codigo');
             $factura->idarticulo=$request->get('idarticulo');
-
-	     //    $mytime = Carbon::now('America/Lima');
-		    // $factura->fecha=$mytime->toDateTimeString();
-           
+            $factura->descuento=$request->get('descuento');
 		    $factura->estado='Activa';
 
             $factura->total=$request->get('txtTotal');
@@ -106,7 +104,7 @@ class FacturaController extends Controller
     	$facturas=DB::table('factura_comercial as f')
             ->join('articulo as a','f.idarticulo','=','a.idarticulo')
             ->join('detalle_factura as d','d.idfactura','=','f.idfactura')
-            ->select('f.idfactura','a.nombre as cliente','f.codigo','f.fecha','f.total')
+            ->select('f.idfactura','a.nombre as cliente','f.codigo','f.fecha','f.total','f.descuento')
             ->where('f.idfactura','=',$id)
             ->first();
         $detalles=DB::table('detalle_factura as d')
@@ -128,6 +126,7 @@ class FacturaController extends Controller
         $factura->idfactura=$request->get('idfactura');
         $factura->idarticulo=$request->get('idarticulo');
         $factura->idproducto=$request->get('idproducto');
+        $factura->descuento=$request->get('descuento');
         $factura->precio_unitario=$request->get('precio_unitario');
         $factura->codigo=$request->get('codigo');
         $factura->precio_unitario=$request->get('precio_unitario');

@@ -24,11 +24,12 @@ class ProductoFormRequest extends Request
     public function rules()
     {
         return [
-            'codigo'=>'required|max:10',
+            'codigo'=>'required|max:20',
             'nombre'=>'required|max:256',
-            'descripcion'=>'max:256',
+            'descripcion'=>'max:700',
             'partida_arancelaria'=>'max:20',
             'idcategoria'=>'required',
+            'sku'=>'max:20',
            
         ];
     }

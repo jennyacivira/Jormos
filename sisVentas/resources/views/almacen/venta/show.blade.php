@@ -3,7 +3,7 @@
 	
 	
     <div class="row">
-    	<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+    	<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
     		<div class="form-group">
             	<label for="fabricante">Cliente</label>
             	<p>{{$ventas->cliente}}</p>
@@ -11,7 +11,7 @@
     	</div>
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
                 <div class="form-group">
-                    <label for="codigo">Orden</label>
+                    <label for="orden_jormos">Orden</label>
                     <p>{{$ventas->orden_jormos}}</p>
                 </div>
          </div>
@@ -23,8 +23,14 @@
          </div>
          <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
                 <div class="form-group">
-                    <label for="fecha">Factura</label>
+                    <label for="codigo">Factura</label>
                     <p>{{$ventas->codigo}}</p>
+                </div>
+         </div>
+          <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+                <div class="form-group">
+                    <label for="descuento">Descuento</label>
+                    <p>{{$ventas->descuento}}</p>
                 </div>
          </div>
     </div>

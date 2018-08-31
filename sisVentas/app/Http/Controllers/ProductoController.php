@@ -24,7 +24,7 @@ class ProductoController extends Controller
             $query=trim($request->get('searchText'));
             $productos=DB::table('producto as p')
             ->join('categoria as c','p.idcategoria','=','c.idcategoria')
-            ->select('p.idproducto','p.nombre','p.codigo','c.nombre as fabricante','p.estado','p.descripcion','p.partida_arancelaria')
+            ->select('p.idproducto','p.nombre','p.codigo','c.nombre as fabricante','p.estado','p.descripcion','p.partida_arancelaria','p.sku')
             ->where('p.codigo','LIKE','%'.$query.'%')
             ->where ('p.estado','=','Activo')
             ->orderBy('p.idproducto','desc')
@@ -45,6 +45,7 @@ class ProductoController extends Controller
         $producto->codigo=$request->get('codigo');
         $producto->descripcion=$request->get('descripcion');    
         $producto->partida_arancelaria=$request->get('partida_arancelaria');
+        $producto->sku=$request->get('sku');
         $producto->estado='Activo';
 
         $producto->save();
@@ -69,6 +70,7 @@ class ProductoController extends Controller
         $producto->codigo=$request->get('codigo');
         $producto->descripcion=$request->get('descripcion');    
         $producto->partida_arancelaria=$request->get('partida_arancelaria');
+        $producto->sku=$request->get('sku');
        
         $producto->update();
         return Redirect::to('almacen/producto');

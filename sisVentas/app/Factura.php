@@ -17,7 +17,8 @@ class Factura extends Model
     	'codigo',
     	'fecha',
     	'estado',
-        'idarticulo'
+        'idarticulo',
+        'descuento',
     ];
 
     protected $guarded =[
